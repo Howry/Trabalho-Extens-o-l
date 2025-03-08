@@ -15,7 +15,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    min-height: 100vh; 
 }
 
 header {
@@ -160,12 +160,35 @@ nav ul li a:hover {
     color: aliceblue;
 }
 
-.donos .sobredn h2 {
-    text-align: center;
+.donos .conteudo {
+    display: flex; /* Flexbox para alinhar a imagem à esquerda e o texto à direita */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px; /* Espaço entre a imagem e o texto */
+}
+
+.donos .conteudo img {
+    width: 150px; /* Tamanho da imagem */
+    height: 150px;
+    border-radius: 10px; /* Bordas arredondadas para a imagem */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    margin-left: 400px; /* Adiciona espaço à esquerda da imagem */
+}
+
+.donos .texto {
+    max-width: 500px; /* Limita a largura do texto */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-left: 700px; /* Empurra o texto para o canto direito */
 }
 
 .donos .sobredn p {
-    padding-left: 1050px; 
     font-size: 18px;
-
 }
+
+.donos .sobredn p.nome {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
