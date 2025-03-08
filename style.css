@@ -148,11 +148,24 @@ nav ul li a:hover {
     background-color: #128c7e; /* Muda a cor quando passar o mouse */
 }
 
-.donos{
+.donos {
     background-color: #6f9784;
-    padding: 300px
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.donos .caixao{
-    background-color: #fff;
+.donos .sobredn {
+    padding-top: 10px;
+    color: aliceblue;
+}
+
+.donos .sobredn h2 {
+    text-align: center;
+}
+
+.donos .sobredn p {
+    padding-left: 1050px; 
+    font-size: 18px;
+
 }
