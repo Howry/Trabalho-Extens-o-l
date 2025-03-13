@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="gpay.png" alt="Logo GPAI ITA">
+        <img class="logo fade-in" src="gpay.png" alt="Logo GPAI ITA">
         <nav>
             <ul class="nav">
                 <li><a href="index.html">Início</a></li>
@@ -18,6 +18,7 @@
             </ul>
         </nav>
     </header>
+
 
     <div class="container">
         <section class="sobre">
@@ -44,12 +45,11 @@
         </a>
 
         <div>
-            <img class="bloco fade-in" src="atipical.jpg" alt="Imagem de Janaina">
+            <img class="bloco" src="atipical.jpg" alt="Imagem de Janaina">
         </div>
 
         <div class="donos">
             <div class="sobredn">
-                <h2 align="center">Fundadores</h2>
                 <div class="conteudo">
                     <div class="texto fade-in">
                         <p class="nome">Janaina</p>
@@ -60,24 +60,45 @@
         </div>
     </div>
 
+    <section class="importancia-adocao fade-in">
+        <h2 align="center">A Importância de Adotar um Pet</h2>
+        <p>Adotar um animal de estimação é um gesto de amor que pode mudar vidas. Ao adotar, você dá uma segunda chance a um animal que precisa de um lar. Além disso, ao adotar, você ajuda a reduzir a população de animais abandonados e melhora a qualidade de vida desses animais, que muitas vezes enfrentam situações difíceis nas ruas.</p>
+        <p>Adotar é um ato de compaixão, e a recompensa é imensurável: companheirismo, amor incondicional e a certeza de que você fez a diferença na vida de um ser vivo. Se você está pensando em adotar, saiba que estará contribuindo para um mundo mais justo e amoroso para todos.</p>
+    
+        <div class="beneficios-adocao slide-right">
+            <div class="beneficio">
+                <h3>1. Salvando Vidas</h3>
+                <p>Adotar significa salvar vidas. Muitos animais em abrigos enfrentam o risco de eutanásia. Ao adotá-los, você dá a eles uma chance real de um novo começo.</p>
+            </div>
+            <div class="beneficio">
+                <h3>2. Combate ao Abandono</h3>
+                <p>Ao adotar, você combate o abandono e ajuda a diminuir a quantidade de animais nas ruas, que muitas vezes enfrentam perigos e doenças.</p>
+            </div>
+            <div class="beneficio">
+                <h3>3. Custo de Adoção Baixo</h3>
+                <p>Adotar um animal geralmente é muito mais barato do que comprá-lo, e os animais adotados são frequentemente vacinados, castrados e desparasitados, o que significa que você economiza com esses custos.</p>
+            </div>
+        </div>
+    
+        <p align="center"><strong>Adote um amigo e faça a diferença!</strong></p>
+    </section>
 
 
-    <script>
+    
+    <script> // SCRIPT HEADER
         window.addEventListener("scroll", function () {
             var header = document.querySelector("header");
             var body = document.querySelector("body");
     
             if (window.scrollY > 50) {
                 header.classList.add("shrink");
-                body.style.paddingTop = "200px"; // Ajuste para a altura menor
+                body.style.paddingTop = "200px"; 
             } else {
                 header.classList.remove("shrink");
-                body.style.paddingTop = "200px"; // Ajuste para a altura normal
+                body.style.paddingTop = "200px";
             }
         });
     </script>
-
-
 
 </body>
 </html>
