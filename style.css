@@ -9,6 +9,7 @@
 }
 
 body {
+    padding-top: 80px;
     font-family: myfont;
     background-color: #ffffff;
     color: rgb(59, 59, 59);
@@ -19,13 +20,23 @@ body {
 }
 
 header {
-    border-radius: 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #6f9784;
-    padding: 15px;
+    padding: 20px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+    z-index: 1000;
+    transition: all 0.3s ease; /* Suaviza a transição */
+}
+
+header.shrink {
+    padding: 5px 10px; /* Diminui o padding */
+    font-size: 14px; /* Diminui um pouco os textos */
 }
 
 header .logo {
@@ -129,6 +140,7 @@ nav ul li a:hover {
 
 /* Estilo para o botão flutuante do WhatsApp */
 .boton-whatsapp {
+    animation: pulse 1.5s infinite;
     position: fixed; /* Fixa o botão na tela */
     bottom: 80px; /* Ajusta a distância do fundo da página para não cobrir o footer */
     right: 20px; /* Distância da lateral direita */
@@ -178,7 +190,7 @@ nav ul li a:hover {
 .donos .texto {
     max-width: 500px; /* Limita a largura do texto */
     text-align: left; /* Alinha o texto à esquerda */
-    margin-left: 700px; /* Empurra o texto para o canto direito */
+    margin-left: 1000px; /* Empurra o texto para o canto direito */
 }
 
 .donos .sobredn p {
@@ -186,9 +198,73 @@ nav ul li a:hover {
 }
 
 .donos .sobredn p.nome {
-    font-size: 24px;
+    font-family: sobrenos;
+    font-size: 50px;
     font-weight: bold;
 }
+
+.bloco{
+    border-radius: 10px;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 210px;
+}
+
+/* anim Whatsapp */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ANIM OBJETOS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIM SOBRE */
+.slide-right {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
 
 
 

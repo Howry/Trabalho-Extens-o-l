@@ -23,17 +23,17 @@
         <section class="sobre">
             <img class="imagemsobre" src="imgquem.jpg" alt="Imagem sobre a ONG">
             <div class="sobrenos">
-                <h2 align="center"><span class="quemsomos">Quem Somos</span></h2>
+                <h2 align="center"><span class="quemsomos fade-in">Quem Somos</span></h2>
                 <p>A GPAI nasceu da união de protetores independentes e voluntários apaixonados pela causa animal. Nosso objetivo é oferecer resgate, abrigo e cuidados a animais em situação de abandono ou maus-tratos, proporcionando a eles uma nova chance de encontrar um lar amoroso.</p>
             </div>
         </section>
 
-        <div class="info-circulo">
-            <div class="circulo">
+        <div class="info-circulo ">
+            <div class="circulo fade-in">
                 <p class="titulo">Adotados</p>
                 <p class="valor"></p>
             </div>
-            <div class="circulo">
+            <div class="circulo fade-in">
                 <p class="titulo">Voluntários</p>
                 <p class="valor"></p>
             </div>
@@ -43,21 +43,41 @@
             <img src="wppicon.png" alt="WhatsApp">
         </a>
 
+        <div>
+            <img class="bloco fade-in" src="atipical.jpg" alt="Imagem de Janaina">
+        </div>
+
         <div class="donos">
             <div class="sobredn">
                 <h2 align="center">Fundadores</h2>
                 <div class="conteudo">
-                    <!-- A imagem fica à esquerda -->
-                    <img class="imagemdn" src="atipical.jpg" alt="Imagem de Janaina">
-                    
-                    <!-- O nome e o texto ficam à direita -->
-                    <div class="texto">
+                    <div class="texto fade-in">
                         <p class="nome">Janaina</p>
-                        <p>Janaina sempre foi apaixonada por animais e, ao perceber o abandono crescente de animais de rua, decidiu se unir a outros protetores independentes para fundar a GPAI (Grupo de Proteção e Ação dos Animais Independentes). Sem apoio do poder público, a ONG sobrevive graças a doações e ao trabalho voluntário. Mariana e sua equipe resgatam, cuidam e encontram lares para os animais abandonados, mas enfrentam desafios diários. Seu maior sonho é expandir a ONG e proporcionar uma vida melhor para mais animais. Para ela, cada resgate é uma vitória e a motivação para continuar a luta.</p>
+                        <p class="slide-right">Janaina sempre foi apaixonada por animais e, ao perceber o abandono crescente de animais de rua, decidiu se unir a outros protetores independentes para fundar a GPAI (Grupo de Proteção e Ação dos Animais Independentes). Sem apoio do poder público, a ONG sobrevive graças a doações e ao trabalho voluntário. Mariana e sua equipe resgatam, cuidam e encontram lares para os animais abandonados, mas enfrentam desafios diários. Seu maior sonho é expandir a ONG e proporcionar uma vida melhor para mais animais. Para ela, cada resgate é uma vitória e a motivação para continuar a luta.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    <script>
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            var body = document.querySelector("body");
+    
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+                body.style.paddingTop = "200px"; // Ajuste para a altura menor
+            } else {
+                header.classList.remove("shrink");
+                body.style.paddingTop = "200px"; // Ajuste para a altura normal
+            }
+        });
+    </script>
+
+
+
 </body>
 </html>
