@@ -89,9 +89,9 @@ nav ul li a:hover {
 }
 
 .sobre .imagemsobre {
-    width: 250px; /* Ajuste de tamanho da imagem */
+    width: 250px; 
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona sombra para dar destaque */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .sobre .sobrenos {
@@ -168,7 +168,7 @@ nav ul li a:hover {
 .donos {
     background: linear-gradient(to left, #6f9784, #64997f, #547954);
     width: 100%;
-    padding: 20px;
+    padding: 100px;
     box-sizing: border-box;
 }
 
@@ -294,6 +294,7 @@ nav ul li a:hover {
 }
 
 .importancia-adocao h2 {
+    text-decoration: underline;
     font-family: ms;
     color: #6f9784;
     font-size: 3em;
@@ -334,6 +335,7 @@ nav ul li a:hover {
 }
 
 .beneficio h3 {
+    
     color: #6f9784;
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -348,6 +350,12 @@ nav ul li a:hover {
 .beneficio:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.beneficio i {
+    font-size: 30px; /* Ajuste o tamanho do ícone */
+    color: #6f9784; /* Cor do ícone */
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
 }
 
 
