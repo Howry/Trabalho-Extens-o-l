@@ -31,38 +31,35 @@
     <h2>Conheça alguns de nossos animais</h2>
     <div class="grid">
         <div class="foto">
-            <img src="\animais\dog.png" alt="Animal 1">
+            <img src="\animais\dog.png" alt="Boneca">
             <p>Boneca</p>
         </div>
         <div class="foto">
-            <img src="\animais\safira.png" alt="Animal 2">
+            <img src="\animais\safira.png" alt="Safira">
             <p>Safira</p>
         </div>
         <div class="foto">
-            <img src="\animais\harry.png" alt="Animal 3">
+            <img src="\animais\harry.png" alt="Harry Potter">
             <p>Harry Potter</p>
         </div>
         <div class="foto">
-            <img src="\animais\jack.png" alt="Animal 4">
+            <img src="\animais\jack.png" alt="Jack">
             <p>Jack</p>
         </div>
-
         <div class="foto">
-            <img src="\animais\apolo.png" alt="Animal 5">
+            <img src="\animais\apolo.png" alt="Apolo">
             <p>Apolo</p>
         </div>
-
         <div class="foto">
-            <img src="\animais\bianca.png" alt="Animal 6">
-            <p>Bianca</p>
+            <img src="\animais\rubi.png" alt="Rubi">
+            <p>Rubi</p>
         </div>
-        <!-- Adicione mais imagens conforme necessário -->
     </div>
 </section>
 
 
 <section class="formas-doacao">
-    <h2>Como ajudar</h2>
+    <h2> <i class="bi bi-question-circle"></i> Como ajudar</h2>
     <p>Você pode fazer a diferença de várias maneiras. Confira abaixo as formas de doação para ajudar os animais da GPAI ITA:</p>
     <div class="formato-doacao">
         <div class="doacao-item">
@@ -80,6 +77,14 @@
     </div>
 </section>
 
+
+
+
+<a href="https://wa.me/55999377485" class="boton-whatsapp" target="_blank">
+    <img src="wppicon.png" alt="WhatsApp">
+</a>
+
+
 <div class="qrcode-container">
     <h3>Faça sua doação através do QR Code abaixo</h3>
     <img src="qrr.png" alt="QR Code para Doação" class="qrcode-img">
@@ -87,8 +92,20 @@
 
 
 
+<script> // SCRIPT HEADER
+    window.addEventListener("scroll", function () {
+        var header = document.querySelector("header");
+        var body = document.querySelector("body");
 
-
+        if (window.scrollY > 50) {
+            header.classList.add("shrink");
+            body.style.paddingTop = "200px"; 
+        } else {
+            header.classList.remove("shrink");
+            body.style.paddingTop = "200px";
+        }
+    });
+</script>
 
 
 

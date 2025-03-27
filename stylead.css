@@ -75,7 +75,7 @@ nav ul li a:hover {
 
 .importancia-doacao {
     background-color: #f0f8f7;
-    margin-top: 50px;
+    margin-top: -50px;
     padding: 40px 20px;
     text-align: left; /* Deixa o texto alinhado à esquerda */
     width: 80%; /* Ajusta a largura do conteúdo */
@@ -142,7 +142,7 @@ nav ul li a:hover {
 
 .formas-doacao h2 {
     font-size: 2.5em;
-    color: #5c5c5c;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -209,12 +209,16 @@ nav ul li a:hover {
 .galeria {
     text-align: center;
     margin: 50px 0;
+    padding: 0 15px;
 }
 
 .galeria h2 {
     font-size: 2.5em;
     color: #6f9784;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .grid {
@@ -226,30 +230,68 @@ nav ul li a:hover {
 
 .foto {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    position: relative;
 }
 
 .foto img {
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 3px solid #eee;
+    transition: transform 0.3s ease;
 }
 
 .foto p {
-    padding: 10px;
+    padding: 15px;
     color: #333;
     font-size: 1.1em;
+    text-align: center;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    margin-top: -1px;
+    border-top: 2px solid #eee;
 }
 
 .foto:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6f9784;
+}
+
+.foto:hover img {
+    transform: scale(1.1);
+}
+
+.foto p:hover {
+    color: #6f9784;
 }
 
 
 
+
+
+.boton-whatsapp {
+    animation: pulse 1.5s infinite;
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 80px; /* Ajusta a distância do fundo da página para não cobrir o footer */
+    right: 20px; /* Distância da lateral direita */
+    z-index: 99999; /* Garante que o botão fique acima de outros conteúdos */
+    background-color: #25d366; /* Cor do botão */
+    border-radius: 50%; /* Torna o botão redondo */
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+.boton-whatsapp img {
+    width: 50px; /* Tamanho do ícone do WhatsApp */
+    height: 50px; /* Tamanho do ícone */
+}
+
+.boton-whatsapp:hover {
+    background-color: #128c7e; /* Muda a cor quando passar o mouse */
+}
 
 
