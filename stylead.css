@@ -21,7 +21,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 header {
@@ -36,12 +36,12 @@ header {
     align-items: center;
     color: white;
     z-index: 1000;
-    transition: all 0.3s ease; /* Suaviza a transição */
+    transition: all 0.3s ease;
 }
 
 header.shrink {
-    padding: 5px 10px; /* Diminui o padding */
-    font-size: 14px; /* Diminui um pouco os textos */
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 header .logo {
@@ -67,27 +67,35 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #90C5AB;
 }
 
+/* Importância da Doação */
 .importancia-doacao {
     background-color: #f0f8f7;
     margin-top: -50px;
     padding: 40px 20px;
-    text-align: left; /* Deixa o texto alinhado à esquerda */
-    width: 80%; /* Ajusta a largura do conteúdo */
-    margin-left: 50px; /* Remove o espaço da margem esquerda */
-    margin-right: auto; /* Mantém a margem direita automática para centralizar na largura restante */
+    text-align: left;
+    width: 80%;
+    margin-left: 50px;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.importancia-doacao:hover {
+    transform: translateY(-5px);
 }
 
 .importancia-doacao h2 {
     font-family: ms;
-
-    color: #6f9784;
-    font-size: 4em;
+    color: #191b1a;
+    font-size: 3.5em;
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
@@ -113,8 +121,10 @@ nav ul li a:hover {
     text-align: justify;
     opacity: 0;
     animation: fade-in 1s ease-out forwards;
+    transition: opacity 0.3s ease;
 }
 
+/* Animação Fade In */
 @keyframes fade-in {
     to {
         opacity: 1;
@@ -127,10 +137,7 @@ nav ul li a:hover {
     }
 }
 
-
-
-
-
+/* Formas de Doação */
 .formas-doacao {
     background: linear-gradient(to left, #59816e5e, #65b7e642, #5479547e);
     padding: 40px 20px;
@@ -138,11 +145,17 @@ nav ul li a:hover {
     width: 80%;
     margin: 0 auto;
     text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.formas-doacao:hover {
+    transform: translateY(-5px);
 }
 
 .formas-doacao h2 {
     font-size: 2.5em;
-    color: #000000;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -166,6 +179,12 @@ nav ul li a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doacao-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .doacao-item h3 {
@@ -175,7 +194,7 @@ nav ul li a:hover {
 }
 
 .doacao-item i {
-    font-size: 1em;
+    font-size: 2em;
     margin-right: 10px;
     color: #6f9784;
 }
@@ -186,6 +205,7 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
+/* QR Code Container */
 .qrcode-container {
     text-align: center;
     margin-top: 30px;
@@ -199,13 +219,13 @@ nav ul li a:hover {
 
 .qrcode-img {
     max-width: 100%;
-    width: 200px;  /* Ajuste o tamanho da imagem aqui */
+    width: 200px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Galeria */
 .galeria {
     text-align: center;
     margin: 50px 0;
@@ -269,29 +289,127 @@ nav ul li a:hover {
     color: #6f9784;
 }
 
-
-
-
-
+/* Botão WhatsApp */
 .boton-whatsapp {
     animation: pulse 1.5s infinite;
-    position: fixed; /* Fixa o botão na tela */
-    bottom: 80px; /* Ajusta a distância do fundo da página para não cobrir o footer */
-    right: 20px; /* Distância da lateral direita */
-    z-index: 99999; /* Garante que o botão fique acima de outros conteúdos */
-    background-color: #25d366; /* Cor do botão */
-    border-radius: 50%; /* Torna o botão redondo */
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 99999;
+    background-color: #25d366;
+    border-radius: 50%;
     padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .boton-whatsapp img {
-    width: 50px; /* Tamanho do ícone do WhatsApp */
-    height: 50px; /* Tamanho do ícone */
+    width: 50px;
+    height: 50px;
 }
 
 .boton-whatsapp:hover {
-    background-color: #128c7e; /* Muda a cor quando passar o mouse */
+    background-color: #128c7e;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-center h3, .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-center ul, .footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-center ul li, .footer-right ul li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-center a, .footer-right a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-center a:hover, .footer-right a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons li {
+    font-size: 18px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00aaff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #222;
+    padding: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
