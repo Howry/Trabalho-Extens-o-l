@@ -384,6 +384,8 @@ footer {
 
 .footer-center a:hover, .footer-right a:hover {
     text-decoration: underline;
+    color:#90C5AB;
+   
 }
 
 .social-icons {
@@ -402,6 +404,7 @@ footer {
 }
 
 .social-icons a:hover {
+    text-decoration: wavy;
     color: #00aaff;
 }
 

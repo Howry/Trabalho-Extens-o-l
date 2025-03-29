@@ -17,6 +17,9 @@ body {
     padding-top: 80px;
     font-family: myfont;
     background-color: #f0f8f7;
+    background-image: url('texture.png');
+    background-repeat: repeat;
+    opacity: 0.9;
     color: rgb(59, 59, 59);
     margin: 0;
     display: flex;
@@ -132,7 +135,7 @@ nav ul li a:hover {
 .circulo .titulo {
     font-weight: bold;
     font-size: 14px;
-    margin: 0; /* Remove qualquer margem do título */
+    margin: 0; /* Remove qualquer margem afdo título */
 }
 
 .circulo .valor {
@@ -283,7 +286,7 @@ nav ul li a:hover {
 
 
 .importancia-adocao {
-    background-color: #f0f8f7;
+    background-color: #f0f8f700;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
@@ -304,6 +307,7 @@ nav ul li a:hover {
 }
 
 .importancia-adocao p {
+    
     font-size: 1.1em;
     margin-bottom: 20px;
     color: #333;
@@ -378,7 +382,110 @@ nav ul li a:hover {
 
 
 
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-center h3, .footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-center ul, .footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-center ul li, .footer-right ul li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-center a, .footer-right a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-center a:hover, .footer-right a:hover {
+    text-decoration: underline;
+    color:#90C5AB;
+   
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons li {
+    font-size: 18px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    text-decoration: wavy;
+    color: #00aaff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #222;
+    padding: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
 
 
+.patada {
+    position: absolute;
+    width: 60px; /* Tamanho da pegada */
+    opacity: 0.3; /* Deixa sutil */
+}
+
+.patada1 { top: 100px; left: 5%; transform: rotate(-15deg); }
+.patada2 { top: 300px; left: 20%; transform: rotate(10deg); }
+.patada3 { top: 500px; left: 40%; transform: rotate(-10deg); }
+.patada4 { top: 700px; left: 60%; transform: rotate(15deg); }
+.patada5 { top: 900px; left: 75%; transform: rotate(-20deg); }
+.patada6 { top: 1100px; left: 50%; transform: rotate(5deg); }
+.patada7 { top: 1300px; left: 25%; transform: rotate(-5deg); }
+.patada8 { top: 1500px; left: 85%; transform: rotate(12deg); }
 
 
