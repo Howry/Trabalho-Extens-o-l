@@ -17,7 +17,7 @@ body {
     padding-top: 80px;
     font-family: myfont;
     background-color: #f0f8f7;
-    background-image: url('texture.png');
+    background-image: url('principal/texture.png');
     background-repeat: repeat;
     opacity: 0.9;
     color: rgb(59, 59, 59);
