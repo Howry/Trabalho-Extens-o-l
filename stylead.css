@@ -1,16 +1,16 @@
 @font-face {
     font-family: myfont;
-    src: url(RobotoFlex.ttf);
+    src: url(fontes/RobotoFlex.ttf);
 }
 
 @font-face {
     font-family: sobrenos;
-    src: url(birstone.ttf);
+    src: url(fontes/birstone.ttf);
 }
 
 @font-face {
     font-family: ms;
-    src: url(MS.ttf);
+    src: url(fontes/MS.ttf);
 }
 
 body {
