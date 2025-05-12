@@ -3,11 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ONG - GPAI ITA</title>
+        <title>Doe - ONG GPAI ITA</title>
+        <!-- Ícones -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Link para o CSS específico desta página -->
         <link rel="stylesheet" href="stylead.css">
+        <link rel="icon" href="principal/favicon.png" type="image/png">
     </head>
     <body>
+        <!-- Header (Estrutura com spacer) -->
         <header>
             <img class="logo fade-in" src="principal/gpay.png" alt="Logo GPAI ITA">
             <nav>
@@ -17,126 +22,131 @@
                     <li><a href="doe.html">Doe</a></li>
                 </ul>
             </nav>
+            <div class="header-spacer"></div> <!-- Essencial para centralizar a nav -->
         </header>
 
-        <section class="importancia-doacao">
-            <h2>A Importância das Doações</h2>
-            <p>A GPAI ITA é uma ONG que sobrevive exclusivamente graças ao apoio de pessoas como você. Cuidamos de animais resgatados das ruas, oferecendo alimentação, abrigo e atendimento veterinário até que encontrem um lar amoroso. A cada dia, centenas de animais precisam de ajuda, e é com sua contribuição que conseguimos fazer isso acontecer.</p>
-            <p>Com sua doação, podemos oferecer cuidados médicos, alimentação, vacinas e até mesmo a castração. Sua ajuda é fundamental para darmos uma vida melhor aos animais que mais precisam.</p>
-            <p>Junte-se a nós! Sua doação pode ser a diferença entre a vida e a morte para um animal abandonado.</p>
-        </section>
+        <main> <!-- Adicionado main para conteúdo principal -->
 
-        <section class="galeria">
-            <h2>Conheça alguns de nossos animais</h2>
-            <p>Esses são apenas alguns dos nossos resgates. Cada um deles tem uma história única e precisa de carinho e cuidados especiais para encontrar um lar definitivo.</p>
-            <div class="grid">
-                <div class="foto">
-                    <img src="\animais\dog.png" alt="Boneca">
-                    <p>Boneca</p>
-                </div>
-                <div class="foto">
-                    <img src="\animais\safira.png" alt="Safira">
-                    <p>Safira</p>
-                </div>
-                <div class="foto">
-                    <img src="\animais\harry.png" alt="Harry Potter">
-                    <p>Harry Potter</p>
-                </div>
-                <div class="foto">
-                    <img src="\animais\jack.png" alt="Jack">
-                    <p>Jack</p>
-                </div>
-                <div class="foto">
-                    <img src="\animais\apolo.png" alt="Apolo">
-                    <p>Apolo</p>
-                </div>
-                <div class="foto">
-                    <img src="\animais\rubi.png" alt="Rubi">
-                    <p>Rubi</p>
-                </div>
-            </div>
-        </section>
+            <section class="importancia-doacao">
+                <h2>A Importância das Doações</h2>
+                <p>A GPAI ITA é uma ONG que sobrevive exclusivamente graças ao apoio de pessoas como você. Cuidamos de animais resgatados das ruas, oferecendo alimentação, abrigo e atendimento veterinário até que encontrem um lar amoroso. A cada dia, centenas de animais precisam de ajuda, e é com sua contribuição que conseguimos fazer isso acontecer.</p>
+                <p>Com sua doação, podemos oferecer cuidados médicos, alimentação, vacinas e até mesmo a castração. Sua ajuda é fundamental para darmos uma vida melhor aos animais que mais precisam.</p>
+                <p>Junte-se a nós! Sua doação pode ser a diferença entre a vida e a morte para um animal abandonado.</p>
+            </section>
 
-        <section class="formas-doacao">
-            <h2>Como posso fazer a diferença? ✨</h2>
-            <p align="center">Existem várias formas de ajudar! Cada gesto seu, seja ele financeiro, material ou de tempo, contribui para a causa de resgatar e cuidar dos animais. Veja como você pode fazer parte dessa transformação:</p>
-            <div class="formato-doacao">
-                <div class="doacao-item">
-                    <h3><i class="bi bi-credit-card"></i> Doação Financeira</h3>
-                    <p>Contribua com qualquer valor através de transferência bancária ou Pix para ajudar a manter nossos programas de resgate, cuidados médicos e alimentação dos animais.</p>
+            <section class="formas-doacao">
+                <h2>Como posso fazer a diferença? <i class="fas fa-hands-helping"></i></h2>
+                <p style="text-align: center;">Existem várias formas de ajudar! Cada gesto seu contribui para a causa. Veja como:</p>
+                <div class="formato-doacao">
+                    <div class="doacao-item">
+                        <h3><i class="bi bi-credit-card"></i> Doação Financeira</h3>
+                        <p>Contribua via transferência bancária ou Pix para ajudar com resgates, cuidados médicos e alimentação.</p>
+                    </div>
+                    <div class="doacao-item">
+                        <h3><i class="bi bi-basket3-fill"></i> Doação de Itens</h3>
+                        <p>Alimentos, cobertores, medicamentos, produtos de limpeza e outros itens essenciais são sempre bem-vindos.</p>
+                    </div>
+                    <div class="doacao-item">
+                        <h3><i class="bi bi-person-heart"></i> Doação de Tempo</h3>
+                        <p>Seja um voluntário e ajude nas atividades de resgates, feiras, eventos e cuidados diários.</p>
+                    </div>
                 </div>
-                <div class="doacao-item">
-                    <h3><i class="bi bi-basket"></i> Doação de Itens</h3>
-                    <p>Alimentos, cobertores, brinquedos e outros itens essenciais para os animais são sempre bem-vindos.</p>
-                </div>
-                <div class="doacao-item">
-                    <h3><i class="bi bi-person-lines-fill"></i> Doação de Tempo</h3>
-                    <p>Seja um voluntário e ajude a GPAI ITA nas atividades de resgates, eventos e cuidados diários com os animais.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <div class="qrcode-container">
-            <h3>Faça sua doação através do QR Code abaixo</h3>
-            <img src="qrr.png" alt="QR Code para Doação" class="qrcode-img">
-            <p>É rápido, seguro e sua contribuição fará toda a diferença! <strong>Doe agora e ajude a salvar vidas!</strong></p>
-        </div>
+            <!-- Seção específica para o QR Code -->
+            <section class="doacao-pix">
+                 <h2>Doe via PIX</h2>
+                 <div class="qrcode-container"> <!-- Container para centralizar -->
+                    <p>Aponte a câmera do seu celular para doar de forma rápida e segura.</p>
+                    <!-- Certifique-se que o caminho está correto -->
+                    <img src="qrr.png" alt="QR Code para Doação PIX" class="qrcode-img">
+                    <!-- <p><strong>Chave PIX:</strong> sua-chave-pix-aqui</p> -->
+                    <p><strong>Sua contribuição salva vidas!</strong></p>
+                </div>
+            </section>
 
-        <a href="https://wa.me/55999377485" class="boton-whatsapp" target="_blank" title="Clique para falar conosco no WhatsApp">
-            <img src="principal/wppicon.png" alt="Fale conosco pelo WhatsApp">
+            <section class="galeria">
+                <h2>Alguns dos Nossos Resgatados</h2>
+                <p>Sua doação ajuda a transformar histórias como essas.</p>
+                <div class="grid">
+                    <div class="foto">
+                        <img src="animais/safira.png" alt="Safira">
+                        <p>Safira</p>
+                    </div>
+                    <div class="foto">
+                        <img src="animais/harry.png" alt="Harry">
+                        <p>Harry</p>
+                    </div>
+                    <div class="foto">
+                        <img src="animais/jack.png" alt="Jack">
+                        <p>Jack</p>
+                    </div>
+                    <div class="foto">
+                        <img src="animais/rubi.png" alt="Rubi">
+                        <p>Rubi</p>
+                    </div>
+                </div>
+            </section>
+
+        </main> <!-- Fim do main -->
+
+        <!-- Botão Flutuante WhatsApp -->
+        <a href="https://wa.me/55999377485" class="boton-whatsapp" target="_blank" title="Fale conosco pelo WhatsApp">
+            <img src="principal/wppicon.png" alt="WhatsApp">
         </a>
 
+        <!-- Footer (Usando o padrão do index.html) -->
         <footer>
-            <div class="footer-container">
+            <div class="footer-container" id="contato">
                 <div class="footer-left">
                     <img src="principal/gpay.png" alt="Logo GPAI ITA" class="footer-logo">
-                    <p>GPAI ITA - Grupo de Proteção e Adoção de Animais</p>
+                    <p>GPAI ITA - Grupo de Proteção e Adoção Independente</p>
                 </div>
                 <div class="footer-center">
                     <h3>Entre em contato</h3>
                     <ul>
-                        <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485">WhatsApp</a></li>
-                        <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpai.com.br">contato@gpai.com.br</a></li>
-                        <li><i class="bi bi-geo-alt"></i> Rua Exemplo, 123 - Cidade, Estado</li>
+                        <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485" target="_blank"> WhatsApp</a></li>
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpaiita.org.br"> contato@gpaiita.org.br</a></li>
+                        <li><i class="bi bi-geo-alt"></i> Itapicirica, MG (Sem sede física no momento)</li>
                     </ul>
                 </div>
                 <div class="footer-right">
                     <h3>Siga-nos</h3>
                     <ul class="social-icons">
-                        <li><a href="https://www.instagram.com/gpaiita/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a></li>
-                        <li><a href="https://www.facebook.com/gpai_ita" target="_blank"><i class="bi bi-facebook"></i> Facebook</a></li>
+                        <li><a href="https://www.instagram.com/gpaiita/" target="_blank" title="Instagram GPAI ITA"><i class="bi bi-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.facebook.com/gpai.itapecerica/" target="_blank" title="Facebook GPAI ITA"><i class="bi bi-facebook"></i> Facebook</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 GPAI ITA | Todos os direitos reservados.</p>
+                <p>© 2024 GPAI ITA | Todos os direitos reservados.</p>
             </div>
         </footer>
 
-
-        <container>
-            <img src="pegada.png" class="patada patada1">
-            <img src="pegada.png" class="patada patada2">
-            <img src="pegada.png" class="patada patada3">
-            <img src="pegada.png" class="patada patada4">
-            <img src="pegada.png" class="patada patada5">
-            <img src="pegada.png" class="patada patada6">
-            <img src="pegada.png" class="patada patada7">
-            <img src="pegada.png" class="patada patada8">
-        </container>
-
-        <script> // SCRIPT HEADER
+        <!-- Script (Usando o padrão do index.html) -->
+        <script>
+            // SCRIPT HEADER SHRINK
             window.addEventListener("scroll", function () {
                 var header = document.querySelector("header");
-                var body = document.querySelector("body");
-
                 if (window.scrollY > 50) {
                     header.classList.add("shrink");
-                    body.style.paddingTop = "200px"; 
                 } else {
                     header.classList.remove("shrink");
-                    body.style.paddingTop = "200px";
                 }
+            });
+
+            // SCRIPT ANIMAÇÕES SCROLL (Intersection Observer - Opcional)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Aplica aos elementos com classes de animação (ajuste conforme necessário)
+            document.querySelectorAll('.fade-in, .slide-right, .importancia-doacao p, .doacao-item, .foto').forEach(el => {
+                observer.observe(el);
             });
         </script>
     </body>

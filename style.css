@@ -1,443 +1,715 @@
+/* === FONTES === */
 @font-face {
-    font-family: myfont;
+    font-family: 'RobotoFlex'; /* Nome mais padrão */
     src: url(fontes/RobotoFlex.ttf);
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: sobrenos;
+    font-family: 'Birstone'; /* Nome mais padrão */
     src: url(fontes/birstone.ttf);
 }
 
 @font-face {
-    font-family: ms;
+    font-family: 'MSFont'; /* Nome mais padrão */
     src: url(fontes/MS.ttf);
 }
 
+/* === VARIÁVEIS DE COR === */
+:root {
+    --cor-primaria: #2e5a46; /* Verde principal escuro */
+    --cor-secundaria: #6f9784; /* Verde médio */
+    --cor-destaque: #90C5AB; /* Verde claro (links hover) */
+    --cor-texto: #3b3b3b; /* Cinza escuro para texto */
+    --cor-texto-claro: #ffffff;
+    --cor-fundo: #f0f8f7;
+    --cor-fundo-card: #ffffff;
+    --cor-gradiente-inicio: #6f9784;
+    --cor-gradiente-fim: #547954;
+    --cor-whatsapp: #25d366;
+    --cor-whatsapp-hover: #128c7e;
+    --cor-footer-bg: #333;
+    --cor-footer-bottom-bg: #222;
+    --sombra-padrao: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --cor-overlay-hero: rgba(0, 0, 0, 0.5); /* Cor para o overlay do slide */
+}
+
+/* === ESTILOS GERAIS === */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Ajuste conforme altura final do header */
+}
+
 body {
-    padding-top: 80px;
-    font-family: myfont;
-    background-color: #f0f8f7;
+    font-family: 'RobotoFlex', sans-serif;
+    background-color: var(--cor-fundo);
     background-image: url('principal/texture.png');
     background-repeat: repeat;
-    opacity: 0.9;
-    color: rgb(59, 59, 59);
+    color: var(--cor-texto);
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+h1, h2, h3 {
+    font-family: 'MSFont', sans-serif;
+    color: var(--cor-primaria);
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-destaque);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === HEADER === */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #2e5a46d3;
-    padding: 20px 15px;
+    background-color: rgb(46, 90, 70);
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: var(--cor-texto-claro);
     z-index: 1000;
-    transition: all 0.3s ease; /* Suaviza a transição */
+    transition: padding 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header.shrink {
-    padding: 5px 10px; /* Diminui o padding */
-    font-size: 14px; /* Diminui um pouco os textos */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(46, 90, 70, 1);
 }
 
 header .logo {
-    padding-left: 70px;
-    width: 150px;
+    flex-basis: 120px;
+    flex-shrink: 0;
+    width: 120px;
+    transition: width 0.3s ease, flex-basis 0.3s ease; /* Adicionado flex-basis à transição */
 }
 
-h1 {
-    font-size: 50px;
-    margin-right: 20px;
+header.shrink .logo {
+    flex-basis: 100px;
+    width: 100px;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
-    font-size: 20px;
+    font-size: 1rem;
     list-style: none;
-    padding-right: 710px;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 20px;
-    margin-right: 30px;
+    gap: 25px;
+    align-items: center;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
+    color: var(--cor-texto-claro);
     font-weight: bold;
+    padding: 5px 0;
+    position: relative;
 }
 
-nav ul li a:hover {
-    color: #90C5AB;
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-destaque);
+    transition: width 0.3s ease;
 }
 
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-spacer {
+    flex-basis: 120px;
+    flex-shrink: 0;
+     transition: flex-basis 0.3s ease; /* Adicionado transição */
+}
+
+header.shrink .header-spacer {
+    flex-basis: 100px;
+}
+
+
+/* === HERO SECTION (COM SWIPER) === */
+.hero-section {
+    position: relative; /* Necessário para elementos filhos posicionados absolutamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
+    padding: 40px 20px;
+    color: var(--cor-texto-claro);
+    margin-top: 80px; /* Ajuste conforme altura do header inicial */
+    overflow: hidden; /* Esconde partes do slide que possam vazar */
+    /* REMOVIDO o background estático */
+}
+
+/* Container do Swiper de fundo */
+.hero-background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Atrás do conteúdo */
+}
+
+.hero-background-slider .swiper-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Para o overlay ::before */
+}
+
+/* Overlay escuro em CADA slide para contraste */
+.hero-background-slider .swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-overlay-hero); /* Usando a variável de cor */
+    z-index: 1; /* Acima da imagem, abaixo do conteúdo */
+}
+
+/* Conteúdo da Hero Section (Textos e Botões) */
+.hero-content {
+    position: relative; /* Necessário para ficar acima do z-index do overlay */
+    z-index: 2; /* Garante que fique visível */
+    /* Estilos anteriores mantidos */
+}
+
+.hero-content h1 {
+    font-family: 'Birstone', cursive;
+    font-size: 4rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra talvez mais forte */
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra leve no parágrafo */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Opcional: Estilizar Setas e Paginação Swiper */
+.hero-section .swiper-button-next,
+.hero-section .swiper-button-prev {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+    z-index: 3; /* Acima do conteúdo */
+}
+.hero-section .swiper-button-next:hover,
+.hero-section .swiper-button-prev:hover {
+    color: rgba(255, 255, 255, 1);
+}
+/* Esconde as setas por padrão, descomente se quiser mostrá-las */
+/*
+.hero-section .swiper-button-next,
+.hero-section .swiper-button-prev {
+    display: block;
+}
+*/
+
+.hero-section .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    z-index: 3; /* Acima do conteúdo */
+    transition: background-color 0.3s ease;
+}
+
+.hero-section .swiper-pagination-bullet-active {
+    background-color: var(--cor-texto-claro);
+}
+/* Para mostrar a paginação, descomente também no HTML */
+
+
+/* === BOTÕES (Estilos reutilizáveis) === */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-principal {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-secundario {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-outline:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+}
+
+
+/* === SEÇÃO QUEM SOMOS === */
 .sobre {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
     align-items: center;
     justify-content: center;
-    margin: 40px 0;
-}
-
-.quemsomos {
-    color: #90C5AB;
-    font-family: sobrenos;
-    font-size: 50px;
+    margin: 60px 0;
+    padding: 20px;
 }
 
 .sobre .imagemsobre {
-    width: 250px; 
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: var(--sombra-padrao);
+    flex-basis: 350px;
+    flex-shrink: 0;
 }
 
 .sobre .sobrenos {
     flex: 1;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff;
+    min-width: 300px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: justify;
+    text-align: left;
+    padding-left: 20px;
 }
 
-
-
-.info-circulo {
-    display: flex;
-    justify-content: center; /* Centraliza os círculos */
-    gap: 50px; /* Ajustei o espaço entre os círculos */
-    margin: 40px 0;
+.sobre .sobrenos h2 {
+    text-align: left;
+    font-family: 'Birstone', cursive;
+    color: var(--cor-secundaria);
+    font-size: 3.5rem;
 }
 
-.circulo {
-    width: 100px; /* Largura do círculo */
-    height: 100px; /* Altura do círculo */
-    background-color: #6f9784; /* Cor de fundo do círculo */
-    border-radius: 50%; /* Torna o div redondo */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+/* === SEÇÃO ANIMAIS EM DESTAQUE === */
+.animais-destaque {
+    padding: 60px 0;
+    background-color: #e6f2ef;
+}
+
+.animais-destaque h2 i {
+    color: var(--cor-secundaria);
+}
+
+.galeria-animais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.animal-card {
+    background-color: var(--cor-fundo-card);
+    border-radius: 10px;
+    box-shadow: var(--sombra-padrao);
     overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.circulo .titulo {
-    font-weight: bold;
-    font-size: 14px;
-    margin: 0; /* Remove qualquer margem afdo título */
+.animal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.circulo .valor {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0; /* Remove qualquer margem do valor */
+.animal-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
+.animal-card h3 {
+    font-family: 'MSFont', sans-serif;
+    color: var(--cor-primaria);
+    font-size: 1.6em;
+    margin-bottom: 5px;
+}
 
+.animal-card p {
+    font-size: 0.95rem;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: #555;
+}
 
-/* Estilo para o botão flutuante do WhatsApp */
+/* === BOTÃO WHATSAPP === */
 .boton-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background-color: var(--cor-whatsapp);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
     animation: pulse 1.5s infinite;
-    position: fixed; /* Fixa o botão na tela */
-    bottom: 80px; /* Ajusta a distância do fundo da página para não cobrir o footer */
-    right: 20px; /* Distância da lateral direita */
-    z-index: 99999; /* Garante que o botão fique acima de outros conteúdos */
-    background-color: #25d366; /* Cor do botão */
-    border-radius: 50%; /* Torna o botão redondo */
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
 }
 
 .boton-whatsapp img {
-    width: 50px; /* Tamanho do ícone do WhatsApp */
-    height: 50px; /* Tamanho do ícone */
+    width: 35px;
+    height: 35px;
+    display: block;
 }
 
 .boton-whatsapp:hover {
-    background-color: #128c7e; /* Muda a cor quando passar o mouse */
+    background-color: var(--cor-whatsapp-hover);
+    transform: scale(1.1);
+    animation-play-state: paused;
 }
 
-.donos {
-    background: linear-gradient(to left, #6f9784, #64997f, #547954);
-    width: 100%;
-    padding: 100px;
-    box-sizing: border-box;
-}
-
-.donos .sobredn {
-    padding-top: 10px;
-    color: aliceblue;
-}
-
-.donos .conteudo {
-    display: flex; /* Flexbox para alinhar a imagem à esquerda e o texto à direita */
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px; /* Espaço entre a imagem e o texto */
-}
-
-.donos .conteudo img {
-    width: 150px; /* Tamanho da imagem */
-    height: 150px;
-    border-radius: 10px; /* Bordas arredondadas para a imagem */
-    object-fit: cover; /* Ajusta a imagem sem distorcer */
-    margin-left: 400px; /* Adiciona espaço à esquerda da imagem */
-}
-
-.donos .texto {
-    max-width: 500px; /* Limita a largura do texto */
-    text-align: left; /* Alinha o texto à esquerda */
-    margin-left: 1000px; /* Empurra o texto para o canto direito */
-}
-
-.donos .sobredn p {
-    font-size: 18px;
-}
-
-.donos .sobredn p.nome {
-    font-family: sobrenos;
-    font-size: 50px;
-    font-weight: bold;
-}
-
-.bloco{
-    border-radius: 10px;
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    position: absolute;
-    margin-left: 600px;
-    margin-top: 210px;
-    animation: slideInFromLeft 1s ease-out forwards;
-}
-
-/* anim Whatsapp */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
-/* ANIM OBJETOS */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInAnimation 1s ease-in-out forwards;
+/* === SEÇÃO NOSSA HISTÓRIA === */
+.nossa-historia {
+    border-radius: 1%;
+    background: linear-gradient(to right, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+    padding: 60px 5%;
+    color: var(--cor-texto-claro);
+    margin: 60px 0;
 }
 
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.nossa-historia h2, .nossa-historia h3 {
+    color: var(--cor-texto-claro);
 }
 
-/* ANIM SOBRE */
-.slide-right {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideRight 1s ease-out forwards;
-}
-
-@keyframes slideRight {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-1000px); /* Começa fora da tela, à esquerda */
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0); /* Chega na posição normal */
-    }
-}
-
-
-
-.importancia-adocao {
-    background-color: #f0f8f700;
-    padding: 40px 20px;
+.historia-container {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza todo o conteúdo na horizontal */
-    justify-content: center; /* Centraliza o conteúdo na vertical */
-    text-align: center; /* Garante que o texto do h2 e p fiquem centralizados */
-    border-radius: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.imagem-fundadora {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--cor-texto-claro);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    flex-basis: 300px;
+    flex-shrink: 0;
+}
+
+.texto-historia {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.texto-historia h3 {
+    font-family: 'Birstone', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.texto-historia p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* === SEÇÃO IMPORTÂNCIA ADOÇÃO === */
+.importancia-adocao {
+    padding: 60px 20px;
+    text-align: center;
 }
 
 .importancia-adocao h2 {
-    text-decoration: underline;
-    font-family: ms;
-    color: #6f9784;
-    font-size: 3em;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-align: center; /* Centraliza o título */
+    font-family: 'MSFont', sans-serif;
+    color: var(--cor-secundaria);
+    font-size: 2.8em;
 }
 
-.importancia-adocao p {
-    
+.importancia-adocao > p {
     font-size: 1.1em;
     margin-bottom: 20px;
     color: #333;
-    max-width: 1050px; 
-    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .beneficios-adocao {
     display: flex;
     justify-content: space-around;
-    margin-top: 30px;
-    width: 100%;
     flex-wrap: wrap;
-    gap: 20px; /* Espaçamento entre os benefícios */
-    text-align: center;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .beneficio {
-    background-color: #fff;
-    padding: 20px;
+    background-color: var(--cor-fundo-card);
+    padding: 30px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    height: 300px; /* Definindo uma altura fixa */
+    box-shadow: var(--sombra-padrao);
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo dentro do card */
+    align-items: center;
+    text-align: center;
+}
+
+.beneficio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.beneficio i {
+    font-size: 2.5rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 15px;
 }
 
 .beneficio h3 {
-    
-    color: #6f9784;
+    color: var(--cor-primaria);
     font-size: 1.5em;
     margin-bottom: 10px;
+    font-family: 'MSFont', sans-serif;
 }
 
 .beneficio p {
     color: #555;
     font-size: 1em;
-    text-align: center; /* Centraliza o texto dentro do card */
+    flex-grow: 1;
 }
 
-.beneficio:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+/* === SEÇÃO COMO AJUDAR === */
+.como-ajudar {
+    padding: 60px 20px;
+    background-color: var(--cor-fundo);
 }
 
-.beneficio i {
-    font-size: 30px; /* Ajuste o tamanho do ícone */
-    color: #6f9784; /* Cor do ícone */
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
+.opcoes-ajuda {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-@media (max-width: 768px) {
-    .importancia-adocao {
-        padding: 30px 15px;
-    }
-
-    .importancia-adocao p {
-        width: 100%;
-    }
-
-    .beneficios-adocao {
-        grid-template-columns: 1fr;
-    }
+.opcao {
+    background-color: var(--cor-fundo-card);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-padrao);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.opcao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
 
+.opcao i {
+    font-size: 3rem;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
 
+.opcao h3 {
+    font-size: 1.6em;
+    color: var(--cor-secundaria);
+    margin-bottom: 10px;
+}
 
+.opcao p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
 
+/* === ANIMAÇÕES SCROLL (INTERSECTION OBSERVER) === */
+.fade-in, .slide-right {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
+.fade-in {
+    transform: translateY(30px);
+}
+
+.slide-right {
+    transform: translateX(-50px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* === FOOTER === */
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 0;
-    font-family: Arial, sans-serif;
+    background-color: var(--cor-footer-bg);
+    color: var(--cor-texto-claro);
+    padding: 40px 0 0 0;
+    font-family: 'RobotoFlex', sans-serif;
+    margin-top: auto;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px;
+    flex-wrap: wrap;
+    padding: 20px 5%;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer-left, .footer-center, .footer-right {
     flex: 1;
-    padding: 20px;
+    min-width: 250px;
+    padding: 10px;
 }
 
 .footer-logo {
-    max-width: 150px;
-    margin-bottom: 10px;
+    max-width: 130px;
+    margin-bottom: 15px;
 }
 
 .footer-left p {
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 1.5;
+    color: #ccc;
 }
 
 .footer-center h3, .footer-right h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--cor-destaque);
+    font-family: 'MSFont', sans-serif;
 }
 
 .footer-center ul, .footer-right ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footer-center ul li, .footer-right ul li {
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.footer-center i, .footer-right i {
+    margin-right: 8px;
+    color: var(--cor-destaque);
 }
 
 .footer-center a, .footer-right a {
-    color: #fff;
+    color: var(--cor-texto-claro);
     text-decoration: none;
 }
 
 .footer-center a:hover, .footer-right a:hover {
     text-decoration: underline;
-    color:#90C5AB;
-   
+    color: var(--cor-destaque);
 }
 
 .social-icons {
@@ -446,26 +718,26 @@ footer {
 }
 
 .social-icons li {
-    font-size: 18px;
+    margin-bottom: 0;
 }
 
-.social-icons a {
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s ease;
+.social-icons a i {
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.social-icons a:hover {
-    text-decoration: wavy;
-    color: #00aaff;
+.social-icons a:hover i {
+    color: var(--cor-destaque);
+    transform: scale(1.1);
 }
 
 .footer-bottom {
     text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    background-color: #222;
-    padding: 10px;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    background-color: var(--cor-footer-bottom-bg);
+    padding: 15px;
+    color: #aaa;
 }
 
 .footer-bottom p {
@@ -473,19 +745,71 @@ footer {
 }
 
 
-.patada {
-    position: absolute;
-    width: 60px; /* Tamanho da pegada */
-    opacity: 0.3; /* Deixa sutil */
+
+/* === RESPONSIVIDADE === */
+
+/* Telas médias (Tablets) */
+@media (max-width: 1024px) {
+    .hero-content h1 { font-size: 3rem; }
+    .hero-content p { font-size: 1.1rem; }
+    nav ul { gap: 15px; }
+    .sobre { gap: 20px; }
+    .historia-container { gap: 30px; }
+    .imagem-fundadora { max-width: 250px; height: 250px; flex-basis: 250px; }
+    .footer-container { flex-direction: column; align-items: center; text-align: center; }
+    .footer-left, .footer-center, .footer-right { width: 80%; margin-bottom: 20px; }
+    .social-icons { justify-content: center; }
+    .footer-logo { margin-left: auto; margin-right: auto; }
 }
 
-.patada1 { top: 100px; left: 5%; transform: rotate(-15deg); }
-.patada2 { top: 300px; left: 20%; transform: rotate(10deg); }
-.patada3 { top: 500px; left: 40%; transform: rotate(-10deg); }
-.patada4 { top: 700px; left: 60%; transform: rotate(15deg); }
-.patada5 { top: 900px; left: 75%; transform: rotate(-20deg); }
-.patada6 { top: 1100px; left: 50%; transform: rotate(5deg); }
-.patada7 { top: 1300px; left: 25%; transform: rotate(-5deg); }
-.patada8 { top: 1500px; left: 85%; transform: rotate(12deg); }
+/* Telas pequenas (Tablets menores e celulares grandes) */
+@media (max-width: 768px) {
+    html { scroll-padding-top: 80px; } /* Ajustar */
+    header { padding: 10px 5%; }
+    header .logo { width: 100px; flex-basis: 100px;} /* Ajuste flex-basis também */
+    .header-spacer { display: none; } /* Esconde o spacer */
+    nav ul { display: none; } /* Esconder menu principal - Implementar menu hamburguer! */
+    /* Adicionar estilo para botão hamburguer aqui */
+     header {
+        /* Ajuste justify-content se o botão hamburguer for à direita */
+        /* justify-content: space-between; */
+     }
 
+    .hero-section { min-height: 60vh; margin-top: 70px; } /* Reduzido um pouco e ajustado margin */
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; gap: 10px; align-items: center; }
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
 
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
+
+    .sobre { flex-direction: column; text-align: center; }
+    .sobre .imagemsobre { margin-bottom: 20px; max-width: 80%; height: auto;} /* Imagem mais responsiva */
+    .sobre .sobrenos { padding: 0; text-align: center; }
+    .sobre .sobrenos h2 { text-align: center; font-size: 3rem; }
+
+    .historia-container { flex-direction: column; text-align: center; }
+    .imagem-fundadora { margin-bottom: 20px; max-width: 200px; height: 200px; flex-basis: auto;} /* Menor e responsiva */
+
+    .beneficios-adocao { flex-direction: column; align-items: center; }
+    .beneficio { width: 90%; max-width: none; }
+
+    .opcoes-ajuda { grid-template-columns: 1fr; }
+
+    .patada { display: none; }
+}
+
+/* Telas muito pequenas (Celulares) */
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .container { width: 95%; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.3em; }
+    .animal-card img { height: 200px; }
+    .btn { width: 80%; } /* Botões ocupam mais largura */
+    .hero-buttons .btn { width: 60%; } /* Ajuste específico para botões do hero */
+    .footer-left, .footer-center, .footer-right { width: 95%; }
+    .boton-whatsapp { padding: 8px; right: 15px; bottom: 15px; }
+    .boton-whatsapp img { width: 30px; height: 30px; }
+}

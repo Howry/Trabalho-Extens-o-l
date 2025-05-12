@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONG - GPAI ITA</title>
+    <title>ONG - GPAI ITA | Adote um Amigo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- === SWIPER CSS === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="principal/favicon.png" type="image/png">
 </head>
 <body>
     <header>
@@ -18,130 +23,236 @@
                 <li><a href="doe.html">Doe</a></li>
             </ul>
         </nav>
+        <div class="header-spacer"></div>
     </header>
 
+    <!-- ===== SEÇÃO HERÓI SLIDER ===== -->
+    <section class="hero-section">
+
+        <!-- Container do Swiper para o fundo -->
+        <div class="swiper hero-background-slider">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide" style="background-image: url('slide/dog1.jpg');"></div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide" style="background-image: url('slide/dog2.jpg');"></div>
+                
+                <!-- Adicione mais slides se precisar -->
+            </div>
+             <!-- descomentar as setas/paginação p/ usá-las -->
+            <!-- <div class="swiper-button-next"></div> -->
+            <!-- <div class="swiper-button-prev"></div> -->
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+
+        <!-- Conteúdo da Hero Section -->
+        <div class="hero-content">
+            <h1 class="fade-in">Adote Amor, Mude uma Vida</h1>
+            <p class="fade-in">Encontre seu companheiro fiel aqui na GPAI ITA. Dê uma segunda chance a um animal resgatado.</p>
+            <div class="hero-buttons fade-in">
+                <a href="adote.html" class="btn btn-principal">Veja Nossos Animais</a>
+                <a href="doe.html" class="btn btn-secundario">Faça uma Doação</a>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
-        <section class="sobre">
-            <img class="imagemsobre" src="principal/imgquem.jpg" alt="Imagem sobre a ONG">
+
+        <!-- ===== QUEM SOMOS ===== -->
+        <section class="sobre" id="quem-somos">
+            <img class="imagemsobre fade-in" src="principal/imgquem.jpg" alt="Voluntários da GPAI ITA com animais">
             <div class="sobrenos">
-                <h2 align="center"><span class="quemsomos fade-in">Quem Somos</span></h2>
-                <p>A GPAI nasceu da união de protetores independentes e voluntários apaixonados pela causa animal. Nosso objetivo é oferecer resgate, abrigo e cuidados a animais em situação de abandono ou maus-tratos, proporcionando a eles uma nova chance de encontrar um lar amoroso.</p>
+                <h2 class="fade-in">Quem Somos</h2>
+                <p class="slide-right">A GPAI é um grupo fundado pela Janaina, e mais quatro amigas (hoje, apenas duas delas continuam (Maria José e Larissa Helena). Nos unimos em 19/04/2023 com o objetivo de arrecadar dinheiro para salvar uma cachorrinha atropelada, que estava agonizando na rua. Desde então, temos trabalhado para mudar a vida dos animais de rua em Itapecerica da Serra, em Minas Gerais.
+
+                    Até o momento, não contamos com a ajuda de nenhum órgão público, e nossa sobrevivência depende de doações e eventos que realizamos, como macarrão na chapa, tropeiro, rifas, entre outros. Também recebemos doações de medicamentos e, principalmente, contamos com a ajuda da veterinária e protetora Dra. Deyse Gondin, que sempre confiou em nosso trabalho e nos ajuda com os tratamentos dos animais. Sem ela, seria quase impossível continuar.
+                    
+                    Atualmente, estamos com uma nova formação, incluindo novos voluntários, mas a luta e os desafios continuam. Em breve, vamos registrar oficialmente a GPAI.</p>
+                <p class="slide-right">Trabalhamos incansavelmente, contando com a generosidade de doações e o apoio da comunidade.</p>
+                
             </div>
         </section>
 
+        <!-- ===== ANIMAIS EM DESTAQUE ===== -->
+        <section class="animais-destaque fade-in" id="destaques">
+            <h2>Esperando por um Lar <i class="fas fa-heart"></i></h2>
+            <p align="center">Conheça alguns dos nossos anjinhos que estão ansiosos por uma família!</p>
+            <div class="galeria-animais">
+                <!-- Animal 1 -->
+                <div class="animal-card slide-right">
+                    <img src="animais/Thomas.png" alt="Foto do Thomas">
+                    <h3>Thomas</h3> <!-- Nome atualizado? -->
+                    <p>Macho, 2 anos, porte médio. Muito brincalhão e adora um carinho na barriga!</p>
+                    <a href="adote.html#Thomas" class="btn btn-secundario">Quero conhecer!</a>
+                </div>
+                <!-- Animal 2 -->
+                <div class="animal-card slide-right">
+                    <img src="animais/Platao.png" alt="Foto do Platão">
+                    <h3>Platão</h3> <!-- Nome atualizado? -->
+                    <p>Fêmea, 5 meses, porte pequeno. Tímida no início, mas um doce de gatinha.</p>
+                    <a href="adote.html#Platao" class="btn btn-secundario">Quero conhecer!</a> <!-- Atualize o #link se necessário -->
+                </div>
+                <!-- Animal 3 -->
+                <div class="animal-card slide-right">
+                    <img src="animais/harry.png" alt="Foto do Harry">
+                    <h3>Harry</h3> <!-- Nome atualizado? -->
+                    <p>Macho, 4 anos, porte grande. Um gigante gentil que ama passear.</p>
+                    <a href="adote.html#harry" class="btn btn-secundario">Quero conhecer!</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="adote.html" class="btn btn-principal">Ver Todos os Animais para Adoção</a>
+            </div>
+        </section>
 
-        <a href="https://wa.me/55999377485" class="boton-whatsapp" target="_blank">
+        <!-- Botão Flutuante WhatsApp -->
+        <a href="https://wa.me/55999377485" class="boton-whatsapp" target="_blank" title="Fale conosco pelo WhatsApp">
             <img src="principal/wppicon.png" alt="WhatsApp">
         </a>
 
-        <div>
-            <img class="bloco" src="principal/atipical.jpg" alt="Imagem de Janaina">
-        </div>
-
-        <div class="donos">
-            <div class="sobredn">
-                <div class="conteudo">
-                    <div class="texto fade-in">
-                        <p class="nome">Janaina</p>
-                        <p class="slide-right">Janaina sempre foi apaixonada por animais e, ao perceber o abandono crescente de animais de rua, decidiu se unir a outros protetores independentes para fundar a GPAI (Grupo de Proteção e Ação dos Animais Independentes). Sem apoio do poder público, a ONG sobrevive graças a doações e ao trabalho voluntário. Mariana e sua equipe resgatam, cuidam e encontram lares para os animais abandonados, mas enfrentam desafios diários. Seu maior sonho é expandir a ONG e proporcionar uma vida melhor para mais animais. Para ela, cada resgate é uma vitória e a motivação para continuar a luta.</p>
-                    </div>
+        <!-- ===== HISTÓRIA/FUNDADORA ===== -->
+        <section class="nossa-historia fade-in" id="historia">
+             <h2 align="center">Nossa Motivação</h2>
+             <div class="historia-container">
+                <img class="imagem-fundadora" src="principal/atipical.jpg" alt="Foto de Janaina, fundadora da GPAI ITA">
+                <div class="texto-historia slide-right">
+                    <h3>Janaina - Paixão que Transforma</h3>
+                    <p>Janaina sempre foi apaixonada por animais. Vendo o crescente número de cães e gatos abandonados nas ruas de Itaituba e a falta de apoio governamental, ela decidiu agir. Uniu-se a outros protetores independentes e, juntos, fundaram a GPAI (Grupo de Proteção e Adoção Independente).</p>
+                    <p>Com recursos limitados, vindos exclusivamente de doações e eventos beneficentes, Janaina e sua equipe dedicam seu tempo e amor ao resgate, tratamento e busca por lares responsáveis. Cada adoção é uma vitória, renovando a esperança e a força para continuar essa luta diária por aqueles que não têm voz.</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <section class="importancia-adocao fade-in">
-        <h2 align="center">A Importância de Adotar um Pet</h2>
-        <p>Adotar um animal de estimação é um gesto de amor que pode mudar vidas. Ao adotar, você dá uma segunda chance a um animal que precisa de um lar. Além disso, ao adotar, você ajuda a reduzir a população de animais abandonados e melhora a qualidade de vida desses animais, que muitas vezes enfrentam situações difíceis nas ruas.</p>
-        <p>Adotar é um ato de compaixão, e a recompensa é imensurável: companheirismo, amor incondicional e a certeza de que você fez a diferença na vida de um ser vivo. Se você está pensando em adotar, saiba que estará contribuindo para um mundo mais justo e amoroso para todos.</p>
-    
-        <div class="beneficios-adocao slide-right">
-            <div class="beneficio">
-                <i class="fas fa-paw"></i>
-                <h3>Salvando Vidas</h3>
-                <p>Adotar significa salvar vidas. Muitos animais em abrigos enfrentam o risco de eutanásia. Ao adotá-los, você dá a eles uma chance real de um novo começo.</p>
+        <!-- ===== IMPORTÂNCIA DA ADOÇÃO ===== -->
+        <section class="importancia-adocao fade-in" id="importancia">
+            <h2 align="center">Por Que Adotar?</h2>
+            <p>Adotar um animal de estimação é um ato de amor que transforma não apenas a vida do animal, mas também a sua. Você oferece uma segunda chance, combate o abandono e ganha um amigo leal para toda a vida.</p>
+            <div class="beneficios-adocao slide-right">
+                <div class="beneficio">
+                    <i class="fas fa-shield-heart"></i>
+                    <h3>Salvando Vidas</h3>
+                    <p>Você liberta um espaço no abrigo para outro animal necessitado e salva uma vida do risco das ruas ou da superlotação.</p>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Amor Incondicional</h3>
+                    <p>Animais adotados costumam ser extremamente gratos e criam laços profundos, oferecendo companheirismo e alegria.</p>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Adoção Consciente</h3>
+                    <p>Adotar geralmente tem custo menor que comprar. Muitos animais já vêm castrados e vacinados, e você apoia uma causa nobre.</p>
+                </div>
             </div>
-            <div class="beneficio"> 
-                <i class="fas fa-heart"></i>
-                <h3>Combate ao Abandono</h3> 
-                <p>Ao adotar, você combate o abandono e ajuda a diminuir a quantidade de animais nas ruas, que muitas vezes enfrentam perigos e doenças.</p>
+            <div style="text-align: center; margin-top: 30px;">
+                 <a href="adote.html" class="btn btn-principal">Encontre Seu Novo Melhor Amigo!</a>
             </div>
-            <div class="beneficio">
-                <i class="fas fa-home"></i>
-                <h3>Custo de Adoção Baixo</h3>
-                <p>Adotar um animal geralmente é muito mais barato do que comprá-lo, e os animais adotados são frequentemente vacinados, castrados e desparasitados, o que significa que você economiza com esses custos.</p>
-            </div>
-        </div>
-    
-        <p align="center"><strong>Adote um amigo e faça a diferença!</strong></p>
-    </section>
+        </section>
 
+        <!-- ===== COMO AJUDAR ===== -->
+        <section class="como-ajudar fade-in" id="ajude">
+             <h2 align="center">Faça a Diferença!</h2>
+             <p align="center">Existem muitas maneiras de apoiar a GPAI ITA e nossos animais:</p>
+             <div class="opcoes-ajuda">
+                 <div class="opcao">
+                    <i class="fas fa-home"></i>
+                    <h3>Adote</h3>
+                    <p>Abra seu coração e seu lar para um animal que precisa.</p>
+                    <a href="adote.html" class="btn btn-secundario">Ver Animais</a>
+                 </div>
+                 <div class="opcao">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Doe</h3>
+                    <p>Sua contribuição ajuda com ração, remédios e custos veterinários.</p>
+                    <a href="doe.html" class="btn btn-secundario">Doe Agora</a>
+                 </div>
+             </div>
+        </section>
+
+    </div> <!-- Fim div.container -->
 
     <footer>
-        <div class="footer-container">
+        <div class="footer-container" id="contato">
             <div class="footer-left">
                 <img src="principal/gpay.png" alt="Logo GPAI ITA" class="footer-logo">
-                <p>GPAI ITA - Grupo de Proteção e Adoção de Animais</p>
+                <p>GPAI ITA - Grupo de Proteção e Adoção Independente</p>
             </div>
             <div class="footer-center">
                 <h3>Entre em contato</h3>
                 <ul>
-                    <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485">WhatsApp</a></li>
-                    <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpai.com.br">contato@gpai.com.br</a></li>
-                    <li><i class="bi bi-geo-alt"></i> Rua Exemplo, 123 - Cidade, Estado</li>
+                    <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485" target="_blank"> WhatsApp</a></li>
+                    <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpaiita.org.br"> contato@gpaiita.org.br</a></li>
+                    <li><i class="bi bi-geo-alt"></i> Itapicirica, MG (Sem sede física no momento)</li>
                 </ul>
             </div>
             <div class="footer-right">
                 <h3>Siga-nos</h3>
                 <ul class="social-icons">
-                    <li><a href="https://www.instagram.com/gpaiita/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a></li>
-                    <li><a href="https://www.facebook.com/gpai_ita" target="_blank"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.instagram.com/gpaiita/" target="_blank" title="Instagram GPAI ITA"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/gpai.itapecerica/" target="_blank" title="Facebook GPAI ITA"><i class="bi bi-facebook"></i> Facebook</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 GPAI ITA | Todos os direitos reservados.</p>
+            <p>© 2024 GPAI ITA | Todos os direitos reservados.</p>
         </div>
     </footer>
 
 
+    <!-- === SWIPER JS (ADICIONADO) === -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
-
-
-    <img src="pegada.png" class="patada patada1">
-    <img src="pegada.png" class="patada patada2">
-    <img src="pegada.png" class="patada patada3">
-    <img src="pegada.png" class="patada patada4">
-    <img src="pegada.png" class="patada patada6">
-    <img src="pegada.png" class="patada patada7">
-    <img src="pegada.png" class="patada patada8">
-
-
-
-
-
-
-
-
-
-
-
-    
-    <script> // SCRIPT HEADER
+    <script>
+        // SCRIPT HEADER
         window.addEventListener("scroll", function () {
             var header = document.querySelector("header");
-            var body = document.querySelector("body");
-    
             if (window.scrollY > 50) {
                 header.classList.add("shrink");
-                body.style.paddingTop = "200px"; 
             } else {
                 header.classList.remove("shrink");
-                body.style.paddingTop = "200px";
             }
         });
+
+        // SCRIPT ANIMAÇÕES SCROLL (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in, .slide-right').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        // === INICIALIZAÇÃO DO SWIPER HERO ===
+        const heroSwiper = new Swiper('.hero-background-slider', {
+            loop: true,
+            effect: 'fade', // Efeito de transição fade
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 5000, // Muda a cada 5 segundos
+                disableOnInteraction: false,
+            },
+            speed: 1000, // Duração da transição de 1 segundo
+            allowTouchMove: false, // Desabilita arrastar
+
+            // Descomente setas/paginação
+            // navigation: {
+            //   nextEl: '.swiper-button-next',
+            //   prevEl: '.swiper-button-prev',
+            // },
+            // pagination: {
+            //   el: '.swiper-pagination',
+            //   clickable: true,
+            // },
+        });
+
     </script>
 
 </body>

@@ -16,57 +16,159 @@
     src: url(fontes/MS.ttf);
 }
 
+@font-face {
+  font-family: 'MSFont'; /* Nome correto */
+  src: url(fontes/MS.ttf);
+}
 
+:root {
+  --cor-primaria: #2e5a46;
+  --cor-secundaria: #6f9784;
+  --cor-destaque: #90C5AB;
+  --cor-texto: #3b3b3b;
+  --cor-texto-claro: #ffffff;
+  --cor-fundo: #f0f8f7;
+  --cor-fundo-card: #ffffff;
+  --cor-gradiente-inicio: #6f9784;
+  --cor-gradiente-fim: #547954;
+  --cor-whatsapp: #25d366;
+  --cor-whatsapp-hover: #128c7e;
+  --cor-footer-bg: #333;      /* *** USADA PELO FOOTER *** */
+  --cor-footer-bottom-bg: #222; /* *** USADA PELO FOOTER *** */
+  --sombra-padrao: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Ajuste conforme altura inicial do header */
+}
+
+/* === HEADER E SUAS ANIMAÇÕES/TRANSIÇÕES === */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2e5a46d3;
-    padding: 20px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    z-index: 1000;
-    transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Usando RGBA diretamente - baseado na --cor-primaria #2e5a46 */
+  background-color: rgba(46, 90, 70, 0.95);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--cor-texto-claro); /* Cor do texto */
+  z-index: 1000;
+  /* TRANSITIONS (Animações ao mudar) */
+  transition: padding 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* --- ESTADO ENCOLHIDO (PRECISA DE JAVASCRIPT!) --- */
+/* *** LEMBRETE: Adicione o JavaScript de scroll para a classe 'shrink' funcionar! *** */
 header.shrink {
-    padding: 5px 10px;
-    font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(46, 90, 70, 1); /* Cor sólida ao encolher */
 }
 
+/* --- Logo e sua transição --- */
 header .logo {
-    padding-left: 70px;
-    width: 200px;
+  flex-basis: 120px;
+  flex-shrink: 0;
+  width: 120px;
+  /* TRANSITION (Animação ao mudar) */
+  transition: width 0.3s ease, flex-basis 0.3s ease;
 }
 
-h1 {
-    font-size: 50px;
-    margin-right: 20px;
+header.shrink .logo {
+  flex-basis: 100px;
+  width: 100px;
+}
+
+/* --- Navegação (Layout) --- */
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
-    font-size: 20px;
-    list-style: none;
-    padding-right: 710px;
-    display: flex;
-    gap: 20px;
-    margin-right: 30px;
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
+/* --- Links da Navegação e suas animações --- */
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  color: var(--cor-texto-claro);
+  font-weight: bold;
+  padding: 5px 0;
+  position: relative; /* Para o ::after */
+  text-decoration: none;
+  /* TRANSITION (Animação da cor do texto) */
+  transition: color 0.3s ease;
 }
 
+/* Sublinhado animado */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Começa invisível */
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cor-destaque); /* Cor do sublinhado */
+  /* TRANSITION (Animação da largura do sublinhado) */
+  transition: width 0.3s ease;
+}
+
+/* Hover do Link (Ativa as transições) */
 nav ul li a:hover {
-    color: #90C5AB;
+  color: var(--cor-destaque); /* Muda cor do texto */
 }
 
+nav ul li a:hover::after {
+  width: 100%; /* Mostra o sublinhado */
+}
+
+/* --- Espaçador e sua transição --- */
+.header-spacer {
+  flex-basis: 120px; /* Mesmo tamanho inicial do logo */
+  flex-shrink: 0;
+  /* TRANSITION (Animação ao mudar) */
+  transition: flex-basis 0.3s ease;
+}
+
+header.shrink .header-spacer {
+  flex-basis: 100px; /* Mesmo tamanho do logo encolhido */
+}
+/* === FIM DO HEADER === */
+
+
+/* === RESPONSIVIDADE DO HEADER (ESSENCIAL) === */
+@media (max-width: 992px) {
+  /* Header responsivo */
+  nav ul { gap: 15px; } /* Menor espaço entre links */
+}
+
+@media (max-width: 768px) {
+  /* Ajuste do Padding para Header Fixo */
+  html {
+      scroll-padding-top: 80px; /* Altura menor do header */
+  }
+
+  /* Header Responsivo */
+  header { padding: 10px 5%; }
+  header .logo { width: 100px; flex-basis: 100px; }
+  .header-spacer { display: none; } /* Esconde o espaçador */
+  nav ul { display: none; } /* ESCONDE O MENU - Precisa de botão hamburguer e JS */
+}
+
+/* === FIM DA RESPONSIVIDADE DO HEADER === */
 
 body {
     font-family: myfont; /* Escolha uma fonte mais bonita depois! */
@@ -74,7 +176,6 @@ body {
     padding: 0;
     line-height: 1.6;
     color: #333; /* Cor base do texto */
-    background-color: #f0f8f7;
     background-image: url('principal/texture.png');
     background-repeat: repeat;
   }
@@ -157,7 +258,7 @@ body {
   /* Hero Section */
   .hero-adocao {
     text-align: center;
-    background-color: #e9ecef; /* Fundo cinza claro para destaque */
+    background-color: #e9ecef8a; /* Fundo cinza claro para destaque */
     padding: 40px 20px;
     border-radius: 8px;
   }
@@ -169,37 +270,6 @@ body {
     color: #6c757d;
   }
   
-  /* Seção de Filtros */
-  .filtros-busca {
-    background-color: #f8f9fa; /* Um pouco diferente do fundo da seção */
-  }
-  .filtros-busca h2 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-  }
-  #form-filtros {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os filtros quebrem linha em telas menores */
-    gap: 20px; /* Espaço entre os elementos do formulário */
-    align-items: center;
-  }
-  #form-filtros label {
-    margin-right: 5px;
-    font-weight: bold;
-    color: #495057;
-  }
-  #form-filtros select {
-    padding: 8px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    min-width: 150px; /* Largura mínima para selects */
-  }
-  #btn-filtrar {
-    background-color: #28a745; /* Verde para ação de filtrar */
-  }
-  #btn-filtrar:hover {
-    background-color: #218838;
-  }
   
   /* Lista de Animais e Cards */
   .lista-animais {
@@ -269,15 +339,6 @@ body {
   .btn-ver-mais:hover {
     background-color: #e0a800;
   }
-  
-  #sem-resultados {
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-    color: #6c757d;
-    display: none; /* Começa escondido, mostrar via JS se não houver resultados */
-  }
-  
   
   
   .requisitos-adocao ul {
@@ -449,99 +510,141 @@ body {
   }
 
   footer {
-    
-    background-color: #333;
-    color: #ffffff;
-    padding: 40px 0;
-    font-family: Arial, sans-serif;
-}
-
-.footer h3{
-  color:#fff;
+    background-color: var(--cor-footer-bg);
+    color: var(--cor-texto-claro);
+    padding: 40px 0 0 0; /* Padding só no topo */
+    font-family: 'RobotoFlex', sans-serif; /* Fonte específica */
+    margin-top: auto; /* Garante que fique no final */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     flex-wrap: wrap;
+    padding: 20px 5%; /* Espaçamento lateral */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza */
+    gap: 20px; /* Espaço entre colunas */
 }
 
 .footer-left, .footer-center, .footer-right {
-    flex: 1;
-    padding: 20px;
+    flex: 1; /* Divide espaço */
+    min-width: 250px; /* Largura mínima antes de quebrar */
+    padding: 10px; /* Padding interno */
 }
 
 .footer-logo {
-    max-width: 150px;
-    margin-bottom: 10px;
+    max-width: 130px;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .footer-left p {
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 1.5;
+    color: #ccc;
 }
 
 .footer-center h3, .footer-right h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--cor-destaque);
+    font-family: 'MSFont', sans-serif; /* Fonte específica */
 }
 
 .footer-center ul, .footer-right ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footer-center ul li, .footer-right ul li {
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* Ícones nos links de contato (requer <i> no HTML) */
+.footer-center i, .footer-right i {
+    margin-right: 8px;
+    color: var(--cor-destaque);
+    width: 1.2em;
+    text-align: center;
 }
 
 .footer-center a, .footer-right a {
-    color: #fff;
+    color: var(--cor-texto-claro);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-center a:hover, .footer-right a:hover {
     text-decoration: underline;
-    color:#90C5AB;
-   
+    color: var(--cor-destaque);
 }
 
+/* Ícones de Redes Sociais */
 .social-icons {
     display: flex;
     gap: 15px;
+    margin-top: 10px;
 }
 
 .social-icons li {
-    font-size: 18px;
+    margin-bottom: 0;
 }
 
 .social-icons a {
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s ease;
+     color: var(--cor-texto-claro);
+     display: inline-block;
 }
 
-.social-icons a:hover {
-    text-decoration: wavy;
-    color: #00aaff;
+.social-icons a i { /* O ícone em si */
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.social-icons a:hover i {
+    color: var(--cor-destaque);
+    transform: scale(1.1);
+}
+
+/* Barra inferior */
 .footer-bottom {
     text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    background-color: #222;
-    padding: 10px;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    background-color: var(--cor-footer-bottom-bg);
+    padding: 15px;
+    color: #aaa;
 }
 
 .footer-bottom p {
     margin: 0;
 }
+/* === FIM DO FOOTER === */
+
+
+/* === RESPONSIVIDADE (Apenas as partes do Footer) === */
+@media (max-width: 1024px) {
+    /* Footer responsivo */
+    .footer-container { flex-direction: column; align-items: center; text-align: center; }
+    .footer-left, .footer-center, .footer-right { width: 80%; min-width: unset; margin-bottom: 20px; padding: 0; }
+    /* Ordem visual opcional */
+    .footer-left { order: 1; }
+    .footer-center { order: 2; }
+    .footer-right { order: 3; }
+    .social-icons { justify-content: center; }
+    .footer-logo { margin-left: auto; margin-right: auto; }
+}
+
+/* Não há regras específicas de footer em @media (max-width: 768px) no original */
+
+@media (max-width: 480px) {
+     /* Footer responsivo */
+    .footer-left, .footer-center, .footer-right { width: 95%; } /* Colunas mais largas */
+}
+/* === FIM DA RESPONSIVIDADE DO FOOTER === */
 
 
 
@@ -662,3 +765,193 @@ body {
     }
     h2 { font-size: 1.5em; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.secao-formulario {
+  background-color: #f8f9fa; /* Fundo sutil */
+  padding: 30px 40px;
+  border-radius: 10px; /* Ajuste no border-radius */
+  box-shadow: var(--sombra-padrao, 0 4px 8px rgba(0,0,0,0.1));
+  max-width: 800px;
+  margin: 40px auto; /* Espaço acima/abaixo e centralizado */
+}
+
+.secao-formulario h2 {
+  text-align: center;
+  color: var(--cor-primaria, #2e5a46);
+  margin-bottom: 15px;
+  font-size: 2.2em; /* Ajuste tamanho se necessário */
+}
+
+.secao-formulario p {
+  text-align: center;
+  margin-bottom: 35px; /* Mais espaço antes do form */
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+/* --- Estilos dos Campos --- */
+#form-interesse-adocao .form-group {
+  margin-bottom: 22px; /* Espaço entre grupos de campos */
+}
+
+#form-interesse-adocao label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--cor-primaria, #2e5a46);
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+#form-interesse-adocao input[type="text"],
+#form-interesse-adocao input[type="email"],
+#form-interesse-adocao input[type="tel"],
+#form-interesse-adocao select,
+#form-interesse-adocao textarea {
+  width: 100%;
+  padding: 14px 18px; /* Mais padding */
+  border: 1px solid #dadedf; /* Borda sutil */
+  border-radius: 8px; /* Cantos arredondados */
+  font-size: 1em;
+  font-family: inherit;
+  background-color: #fdfdfd;
+  color: var(--cor-texto, #3b3b3b);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none; /* Remove aparência padrão */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Placeholder */
+#form-interesse-adocao input::placeholder,
+#form-interesse-adocao textarea::placeholder {
+  color: #a0a0a0;
+  opacity: 0.8;
+}
+
+/* Foco nos campos */
+#form-interesse-adocao input[type="text"]:focus,
+#form-interesse-adocao input[type="email"]:focus,
+#form-interesse-adocao input[type="tel"]:focus,
+#form-interesse-adocao select:focus,
+#form-interesse-adocao textarea:focus {
+  outline: none;
+  border-color: var(--cor-secundaria, #6f9784);
+  box-shadow: 0 0 0 3px rgba(111, 151, 132, 0.15); /* Sombra suave no foco */
+}
+
+/* Textarea */
+#form-interesse-adocao textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Select (Dropdown) Customizado */
+#form-interesse-adocao select {
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236f9784'%3E%3Cpath fill-rule='evenodd' d='M8 11.5a.5.5 0 0 1-.354-.146l-4-4a.5.5 0 0 1 .708-.708L8 10.293l3.646-3.647a.5.5 0 0 1 .708.708l-4 4A.5.5 0 0 1 8 11.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+#form-interesse-adocao select::-ms-expand { display: none; } /* IE */
+
+/* Checkbox Customizado */
+#form-interesse-adocao .checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+#form-interesse-adocao .checkbox-group input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  flex-shrink: 0;
+  margin-top: 3px;
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cor-secundaria, #6f9784);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+#form-interesse-adocao .checkbox-group input[type="checkbox"]:checked {
+  background-color: var(--cor-secundaria, #6f9784);
+  border-color: var(--cor-secundaria, #6f9784);
+}
+#form-interesse-adocao .checkbox-group input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 1px; left: 5px;
+  width: 5px; height: 10px;
+  border: solid var(--cor-texto-claro, white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.2s ease;
+}
+#form-interesse-adocao .checkbox-group input[type="checkbox"]:checked::before {
+  transform: rotate(45deg) scale(1);
+}
+#form-interesse-adocao .checkbox-group label {
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #444;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* Botão de Envio */
+#form-interesse-adocao .form-actions {
+  text-align: center;
+  margin-top: 35px;
+}
+
+#form-interesse-adocao .btn-acao {
+  padding: 14px 35px; /* Ajuste de padding */
+  font-size: 1.1em;
+  font-weight: bold;
+  background-color: var(--cor-secundaria, #6f9784);
+  color: var(--cor-texto-claro, white); /* Garantir cor do texto */
+  border: none;
+  border-radius: 8px; /* Mesmo radius dos inputs */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+   /* Sombra sutil */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+#form-interesse-adocao .btn-acao:hover {
+  background-color: var(--cor-primaria, #2e5a46); /* Cor de hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra mais pronunciada */
+  transform: translateY(-1px); /* Leve efeito de levantar */
+}
+#form-interesse-adocao .btn-acao:active {
+  transform: translateY(0px); /* Retorna ao clicar */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+/* === FIM ESTILOS DO FORMULÁRIO === */
