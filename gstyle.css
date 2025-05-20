@@ -564,7 +564,7 @@ body {
     margin-bottom: 8px;
 }
 
-/* Ícones nos links de contato (requer <i> no HTML) */
+/* Ícones nos links de contato */
 .footer-center i, .footer-right i {
     margin-right: 8px;
     color: var(--cor-destaque);
@@ -599,7 +599,7 @@ body {
      display: inline-block;
 }
 
-.social-icons a i { /* O ícone em si */
+.social-icons a i {
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }

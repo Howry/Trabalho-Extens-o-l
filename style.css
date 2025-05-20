@@ -359,7 +359,7 @@ header.shrink .header-spacer {
     flex: 1;
     min-width: 300px;
     border-radius: 10px;
-    text-align: left;
+    text-align: justify;
     padding-left: 20px;
 }
 
@@ -492,7 +492,7 @@ header.shrink .header-spacer {
 .texto-historia {
     flex: 1;
     min-width: 300px;
-    text-align: left;
+    text-align: justify;
 }
 
 .texto-historia h3 {
