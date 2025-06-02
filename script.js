@@ -187,8 +187,8 @@ if (formAdocao) {
         // 1. Impede o envio padrão do formulário
         event.preventDefault();
 
-        // 2. Defina AQUI o número de WhatsApp da sua organização
-        const numeroWhatsAppOrganização = '553799377485'; // <<< SUBSTITUA PELO SEU NÚMERO (formato internacional sem +, espaços ou -)
+        // 2. número de WhatsApp
+        const numeroWhatsAppOrganização = '553799377485';
 
         // 3. Pega os valores dos campos do formulário
         const nome = document.getElementById('nome').value.trim();
@@ -205,6 +205,12 @@ if (formAdocao) {
         if (!nome || !email || !telefone || !endereco || !tipoMoradia || !experiencia) {
             alert('Por favor, preencha todos os campos obrigatórios e marque as caixas de seleção.');
             return; // Interrompe a execução se a validação falhar
+        }
+
+        if (isNaN(telefone) || telefone.trim() === "") {
+            alert("Por favor, digite apenas números.");
+            event.preventDefault(); // Impede o envio do formulário
+            return; // Interrompe a execução se o número não for válido
         }
 
         // 4. Monta a mensagem formatada (use \n para novas linhas)
