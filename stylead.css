@@ -98,14 +98,14 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(46, 90, 70, 0.95);
+    background-color: rgb(46, 90, 70); /* ou var(--cor-primaria) */
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--cor-texto-claro);
     z-index: 1000;
-    transition: padding 0.3s ease;
+    transition: padding 0.3s ease, background-color 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -127,13 +127,14 @@ header.shrink .logo {
     width: 100px;
 }
 
-nav {
-    flex-grow: 1;
+/* Navegação Desktop */
+.nav-desktop {
+    flex-grow: 1; /* Ocupa espaço no centro */
     display: flex;
     justify-content: center;
 }
 
-nav ul {
+.nav-desktop ul.nav { /* Usando especificidade maior */
     font-size: 1rem;
     list-style: none;
     padding: 0;
@@ -143,7 +144,7 @@ nav ul {
     align-items: center;
 }
 
-nav ul li a {
+.nav-desktop ul.nav li a {
     color: var(--cor-texto-claro);
     font-weight: bold;
     padding: 5px 0;
@@ -151,34 +152,140 @@ nav ul li a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--cor-destaque);
-    transition: width 0.3s ease;
-}
-
-nav ul li a:hover {
+.nav-desktop ul.nav li a:hover {
     color: var(--cor-destaque);
 }
-
-nav ul li a:hover::after {
+.nav-desktop ul.nav li a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: 0; left: 0; background-color: var(--cor-destaque);
+    transition: width 0.3s ease;
+}
+.nav-desktop ul.nav li a:hover::after {
     width: 100%;
 }
 
+
 .header-spacer {
-    flex-basis: 120px;
+    flex-basis: 120px; /* Mesmo tamanho do logo para centralizar .nav-desktop */
     flex-shrink: 0;
-     transition: flex-basis 0.3s ease;
+    transition: flex-basis 0.3s ease;
 }
 
 header.shrink .header-spacer {
     flex-basis: 100px;
+}
+/* FIM DO CSS DO HEADER DESKTOP */
+
+
+/* === BOTÃO HAMBÚRGUER === */
+.hamburger-menu {
+    display: none; /* Escondido em desktop */
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1005; 
+    /* order: 3;  Opcional: se precisar forçar ordem no flex container do header */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--cor-texto-claro);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* === ESTILOS PARA TELAS MENORES === */
+@media (max-width: 768px) {
+    html { scroll-padding-top: 70px; } /* Altura aproximada do header mobile */
+    
+    header {
+        padding: 10px 5%;
+        /* justify-content: space-between;  Já está, logo à esquerda, hambúrguer à direita */
+    }
+    
+    header .logo {
+        width: 100px;
+        flex-basis: 100px;
+        order: 1; /* Garante que o logo venha primeiro */
+    }
+    
+    .nav-desktop {
+        display: none; /* Esconde a navegação de desktop */
+    }
+
+    .header-spacer {
+        display: none; /* Esconde o spacer no mobile */
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostra o botão hambúrguer */
+        order: 2; /* Garante que o hambúrguer venha depois do logo */
+    }
+
+    /* Animação do Hambúrguer para "X" */
+    .hamburger-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    .hamburger-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Estilo do Menu de Navegação Mobile (.nav-mobile) */
+    .nav-mobile {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Começa fora da tela */
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: rgb(38, 77, 60); /* Ou var(--cor-primaria) ou uma variação */
+        padding-top: 70px; /* Espaço para o header (ajuste se a altura do header mobile mudar) */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        transition: left 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        z-index: 1001; /* Abaixo do botão hambúrguer se ele estiver "X", mas acima do conteúdo */
+        overflow-y: auto;
+    }
+
+    .nav-mobile.is-active { /* Classe adicionada via JS */
+        left: 0; /* Menu desliza para dentro */
+    }
+
+    .nav-mobile ul.nav { /* A lista dentro do painel mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0; margin: 0; /* Reset */
+        list-style: none; /* Reset */
+        gap: 0;
+    }
+
+    .nav-mobile ul.nav li {
+        width: 100%;
+    }
+
+    .nav-mobile ul.nav li a {
+        display: block;
+        padding: 18px 25px;
+        color: var(--cor-texto-claro);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-mobile ul.nav li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-mobile ul.nav li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--cor-destaque);
+    }
+    .nav-mobile ul.nav li a::after { /* Esconde o sublinhado animado no mobile */
+        display: none;
+    }
 }
 /* === FIM DO HEADER === */
 
@@ -597,28 +704,6 @@ footer {
     .footer-logo { margin-left: auto; margin-right: auto; }
 }
 
-@media (max-width: 768px) {
-    /* Header responsivo */
-    html { scroll-padding-top: 80px; }
-    header { padding: 10px 5%; }
-    header .logo { width: 100px; flex-basis: 100px;}
-    .header-spacer { display: none; }
-    nav ul { display: none; } /* NECESSITA BOTÃO HAMBURGUER */
-    header {}
-
-    /* Seções */
-    .importancia-doacao, .formas-doacao, .doacao-pix, .galeria { width: 95%; padding: 30px 20px; margin-top: 30px; margin-bottom: 30px; }
-    .importancia-doacao h2 { font-size: 2.5em; }
-    .formas-doacao h2, .doacao-pix h2, .galeria h2 { font-size: 2.2em; }
-
-     .formato-doacao { flex-direction: column; align-items: center; gap: 20px; }
-     .doacao-item { width: 90%; max-width: 400px; flex-basis: auto; }
-
-    .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;}
-    .foto img { height: 180px; }
-
-    .patada { display: none; }
-}
 
 @media (max-width: 480px) {
     /* Seções */

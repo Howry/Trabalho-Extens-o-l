@@ -16,16 +16,34 @@
 <body>
     <header>
         <img class="logo fade-in" src="principal/gpay.png" alt="Logo GPAI ITA">
-        <nav>
+        
+        <!-- NAV DESKTOP (será escondido no mobile) -->
+        <nav class="nav-desktop">
             <ul class="nav">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="adote.html">Adote</a></li>
                 <li><a href="doe.html">Doe</a></li>
             </ul>
         </nav>
-        <div class="header-spacer"></div>
-    </header>
+        
+        <div class="header-spacer"></div> <!-- Para desktop, ajuda a centralizar a nav-desktop -->
 
+        <!-- BOTÃO HAMBÚRGUER -->
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- NAV MOBILE (o painel que desliza) -->
+        <nav class="nav-mobile">
+            <ul class="nav">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="adote.html">Adote</a></li>
+                <li><a href="doe.html">Doe</a></li>
+            </ul>
+        </nav>
+    </header>
     <!-- ===== SEÇÃO HERÓI SLIDER ===== -->
     <section class="hero-section">
 
@@ -94,10 +112,10 @@
                 </div>
                 <!-- Animal 3 -->
                 <div class="animal-card slide-right">
-                    <img src="animais/harry.png" alt="Foto do Harry">
-                    <h3>Harry</h3> <!-- Nome atualizado? -->
+                    <img src="animais/Oscar.png" alt="Foto do Oscar">
+                    <h3>Oscar   </h3> <!-- Nome atualizado? -->
                     <p>Macho, 4 anos, porte grande. Um gigante gentil que ama passear.</p>
-                    <a href="adote.html#harry" class="btn btn-secundario">Quero conhecer!</a>
+                    <a href="adote.html#Oscar" class="btn btn-secundario">Quero conhecer!</a>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 30px;">
@@ -181,7 +199,6 @@
                 <h3>Entre em contato</h3>
                 <ul>
                     <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485" target="_blank"> WhatsApp</a></li>
-                    <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpaiita.org.br"> contato@gpaiita.org.br</a></li>
                     <li><i class="bi bi-geo-alt"></i> Itapecerica, MG (Sem sede física no momento)</li>
                 </ul>
             </div>
@@ -199,61 +216,10 @@
     </footer>
 
 
-    <!-- === SWIPER JS (ADICIONADO) === -->
+    <!-- === SWIPER JS === -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-
-    <script>
-        // SCRIPT HEADER
-        window.addEventListener("scroll", function () {
-            var header = document.querySelector("header");
-            if (window.scrollY > 50) {
-                header.classList.add("shrink");
-            } else {
-                header.classList.remove("shrink");
-            }
-        });
-
-        // SCRIPT ANIMAÇÕES SCROLL (Intersection Observer)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in, .slide-right').forEach(el => {
-            observer.observe(el);
-        });
-
-
-        // === INICIALIZAÇÃO DO SWIPER HERO ===
-        const heroSwiper = new Swiper('.hero-background-slider', {
-            loop: true,
-            effect: 'fade', // Efeito de transição fade
-            fadeEffect: {
-                crossFade: true
-            },
-            autoplay: {
-                delay: 5000, // Muda a cada 5 segundos
-                disableOnInteraction: false,
-            },
-            speed: 1000, // Duração da transição de 1 segundo
-            allowTouchMove: false, // Desabilita arrastar
-
-            // Descomente setas/paginação
-            // navigation: {
-            //   nextEl: '.swiper-button-next',
-            //   prevEl: '.swiper-button-prev',
-            // },
-            // pagination: {
-            //   el: '.swiper-pagination',
-            //   clickable: true,
-            // },
-        });
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

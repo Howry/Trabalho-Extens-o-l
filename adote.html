@@ -10,16 +10,35 @@
 
     </head>
 <body>
-    <header>
+     <header>
         <img class="logo fade-in" src="principal/gpay.png" alt="Logo GPAI ITA">
-        <nav>
+        
+        <!-- NAV DESKTOP (será escondido no mobile) -->
+        <nav class="nav-desktop">
             <ul class="nav">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="adote.html">Adote</a></li>
                 <li><a href="doe.html">Doe</a></li>
             </ul>
         </nav>
-        <div class="header-spacer"></div> <!-- Essencial para centralizar a nav -->
+        
+        <div class="header-spacer"></div> <!-- Para desktop, ajuda a centralizar a nav-desktop -->
+
+        <!-- BOTÃO HAMBÚRGUER -->
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- NAV MOBILE (o painel que desliza) -->
+        <nav class="nav-mobile">
+            <ul class="nav">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="adote.html">Adote</a></li>
+                <li><a href="doe.html">Doe</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -234,11 +253,6 @@
     </form>
 </section>
 
-
-
-
-
-
     <footer>
         <div class="footer-container">
             <div class="footer-left">
@@ -249,7 +263,6 @@
                 <h3>Entre em contato</h3>
                 <ul>
                     <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/55999377485" target="_blank"> WhatsApp</a></li>
-                    <li><i class="bi bi-envelope"></i> <a href="mailto:contato@gpaiita.org.br"> contato@gpaiita.org.br</a></li>
                     <li><i class="bi bi-geo-alt"></i> Itapecerica, MG (Sem sede física no momento)</li>
                 </ul>
             </div>
@@ -265,44 +278,6 @@
             <p>&copy; 2025 GPAI ITA | Todos os direitos reservados.</p>
         </div>
     </footer>
-
-
-
-
-
-  
-    <div id="modal-detalhes" class="modal">
-        <div class="modal-content">
-            <span class="fechar-modal">×</span>
-            <h2 id="modal-nome">Nome do Animal</h2>
-            <img id="modal-imagem" src="" alt="Foto detalhada do animal">
-            <p id="modal-descricao">Descrição completa virá aqui...</p>
-            <h3>Mais Informações:</h3>
-            <ul id="modal-info">
-                <!-- Informações extras (vacinas, castrado, etc.) serão inseridas aqui pelo JS -->
-            </ul>
-             <a id="modal-link-adocao" href="#" class="btn-acao modal-btn-adotar">Tenho Interesse!</a>
-        </div>
-    </div>
-
-
-
-
-
-    <script> // SCRIPT HEADER
-        window.addEventListener("scroll", function () {
-            var header = document.querySelector("header");
-            var body = document.querySelector("body");
-
-            if (window.scrollY > 50) {
-                header.classList.add("shrink");
-                body.style.paddingTop = "200px"; 
-            } else {
-                header.classList.remove("shrink");
-                body.style.paddingTop = "200px";
-            }
-        });
-    </script>
 
 
     <script src="script.js"></script>
